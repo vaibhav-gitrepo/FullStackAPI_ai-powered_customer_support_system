@@ -7,6 +7,20 @@ export const chatController = new Hono();
 chatController.post('/messages', async (c) => {
   const { conversationId, message } = await c.req.json();
 
+  // Ensure conversation exists, create if it doesn't
+  let conversation = await prisma.conversation.findUnique({
+    where: { id: conversationId }
+  });
+
+  if (!conversation) {
+    conversation = await prisma.conversation.create({
+      data: {
+        id: conversationId,
+        userId: 'default-user'
+      }
+    });
+  }
+
   // Save user message
   await prisma.message.create({
     data: { conversationId, sender: 'user', content: message }
