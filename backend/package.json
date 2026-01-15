@@ -1,0 +1,22 @@
+{
+  "name": "ai-support-backend",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "prisma": "prisma"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.9",
+    "@prisma/client": "^5.0.0",
+    "hono": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.8",
+    "prisma": "^5.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}

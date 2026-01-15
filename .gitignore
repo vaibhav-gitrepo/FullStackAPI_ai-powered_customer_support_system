@@ -1,0 +1,138 @@
+# Git & GitHub Setup Guide
+
+## Table of Contents
+1. [Prerequisites](#prerequisites)
+2. [Initialize Git Locally](#initialize-git-locally)
+3. [Create .gitignore File](#create-gitignore-file)
+4. [Create .env.example](#create-envexample)
+5. [Create GitHub Repository](#create-github-repository)
+6. [Push to GitHub](#push-to-github)
+7. [Cloning for Other Developers](#cloning-for-other-developers)
+8. [Best Practices](#best-practices)
+
+---
+
+## Prerequisites
+
+### Required Software
+- **Git** installed on your system
+- **GitHub Account** (create at https://github.com)
+- Command line/Terminal access
+
+### Verify Git Installation
+```bash
+git --version
+```
+
+### Configure Git (First Time Only)
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+```
+
+---
+
+## Initialize Git Locally
+
+### Step 1: Navigate to Project Root
+```bash
+cd C:\FullStackAPI_ai
+```
+
+### Step 2: Initialize Git Repository
+```bash
+git init
+```
+**Output**:
+```
+Initialized empty Git repository in C:\FullStackAPI_ai\.git
+```
+
+### Step 3: Check Git Status
+```bash
+git status
+```
+**Expected Output**:
+```
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+  README.md
+  backend/
+  Frontend/
+```
+
+---
+
+## Create .gitignore File
+
+### Step 1: Create .gitignore in Root Directory
+```bash
+cd C:\FullStackAPI_ai
+```
+
+Create a file named `.gitignore` with the following content:
+<function_calls>
+<invoke name="create_file">
+<parameter name="content"># Environment Variables - NEVER COMMIT THESE
+.env
+.env.local
+.env.*.local
+.env.production
+
+# Dependencies
+node_modules/
+package-lock.json
+npm-debug.log
+yarn-lock.json
+pnpm-lock.yaml
+
+# Build & Distribution Files
+dist/
+build/
+*.tsbuildinfo
+.turbo/
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.classpath
+*.log
+
+# OS Files
+Thumbs.db
+.DS_Store
+
+# Temporary Files
+tmp/
+temp/
+*.tmp
+
+# Testing & Coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Database Files
+*.sqlite
+*.sqlite3
+*.db
+
+# Prisma
+.prisma/
+
+# Vite Cache
+.vite/
+.cache
+
+# Misc
+.env.*.json
+secrets.json
